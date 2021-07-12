@@ -20,8 +20,8 @@ def rev_string(astring):
     You may NOT use the reversed() function!
     """
     # base case(degenerate):
-    # if astring is empty:
-        # return ''
+    if not astring:
+        return ''
 
     # tracking variable to hold reversed string
     # index variable to hold index
