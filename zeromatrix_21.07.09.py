@@ -30,8 +30,9 @@ def zero_matrix(matrix):
         for idx, num in enumerate(row):
             if num == 0:
                 zero_idx = idx
-                if idx > 0:
-                    row[idx-1] = 0
+                if idx > 0 and idx < len(row):
+                    idx = idx -= 1
+                    row[idx] = 0
                     break
                     # zeroed_matrix.append(row)
                 continue
