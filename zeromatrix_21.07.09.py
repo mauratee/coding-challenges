@@ -24,18 +24,17 @@ def zero_matrix(matrix):
         return None
 
     zeroed_matrix = ([])
-    zero_idx = ''
+    zero_idx_row = None
+    zero_idx_matrix = None
 
-    for row in matrix:
-        for idx, num in enumerate(row):
+    for idx, row in enumerate(matrix):
+        for jdx, num in enumerate(row):
             if num == 0:
-                zero_idx = idx
-                if idx > 0 and idx < len(row):
-                    idx = idx -= 1
-                    row[idx] = 0
-                    break
-                    # zeroed_matrix.append(row)
-                continue
+                zero_idx_row = jdx
+                zero_idx_matrix = idx
+                for x in range(len(row)):
+                        row[x] = 0
+                break
                 # for list in matrix
                     # for idx, num in enumerate(list)
                         # if idx == zero_idx:
@@ -43,9 +42,21 @@ def zero_matrix(matrix):
         
         zeroed_matrix.append(row)
 
+    if zero_idx_row:
+        for idx, row in enumerate(zeroed_matrix):
+            if idx == zero_idx_matrix:
+                continue
+            for jdx, num in enumerate(row):
+                if jdx == zero_idx_row:
+                    row[jdx] = 0
+
+    # print(zero_idx_row)
+    # print(zero_idx_matrix)
+
+
     return zeroed_matrix
 
-# zero_matrix([[1, 0, 3], [4, 5, 6], [7, 8, 9]])
+zero_matrix([[1, 0, 3], [4, 5, 6], [7, 8, 9]])
 
 
 
