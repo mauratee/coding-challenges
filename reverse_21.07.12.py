@@ -23,9 +23,6 @@ def rev_string(astring):
     if len(astring) < 2:
         return astring
 
-
-    # for char in astring[::-1]:
-    #     rev_string = rev_string + char
     
     return astring[-1] + rev_string(astring[:-1])
 
