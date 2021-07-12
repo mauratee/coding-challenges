@@ -20,16 +20,14 @@ def rev_string(astring):
     You may NOT use the reversed() function!
     """
     # base case(degenerate):
-    if not astring:
-        return ''
+    if len(astring) < 2:
+        return astring
 
-    rev_string = ''
-    # index variable to hold index
 
-    for char in astring[::-1]:
-        rev_string = rev_string + char
+    # for char in astring[::-1]:
+    #     rev_string = rev_string + char
     
-    return rev_string
+    return astring[-1] + rev_string(astring[:-1])
 
 
 if __name__ == '__main__':
