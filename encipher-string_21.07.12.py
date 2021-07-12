@@ -21,8 +21,8 @@ It should preserve capitalization, whitespace, and any special characters:
 def rot_encode(shift, txt):
     """Encode `txt` by shifting its characters to the right."""
 
-    # if not txt:
-        # return ''
+    if not txt:
+        return ""
 
     alpha_lower = "abcdefghijklmnopqrstuvwxyz"
     alpha_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -39,8 +39,23 @@ def rot_encode(shift, txt):
         alpha_upper_dict[char] = i
         i += 1
     
-    print(alpha_lower_dict)
-    print(alpha_upper_dict)
+    # print(alpha_lower_dict)
+    # print(alpha_upper_dict)
+
+    shifted_txt = ""
+
+    for char in txt:
+        if char in alpha_lower:
+            val = alpha_lower_dict[char]
+            shift_val = val + shift
+            if shift_val > 26:
+                shift_val = shift_val - 26
+            for letter, value in alpha_lower_dict.items():
+                if value == shift_val:
+                    new_char = letter
+                    shifted_txt = shifted_txt + new_char
+    
+    return shifted_txt
 
 
 
