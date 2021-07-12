@@ -19,25 +19,33 @@ Make sure it works with non-square matrices:
 
 def zero_matrix(matrix):
     """Given an NxM matrix, for cells=0, set their row and column to zeroes."""
+   
     if not matrix:
         return None
 
-    # zeroed_matrix = ([])
-    # zero_idx = ''
+    zeroed_matrix = ([])
+    zero_idx = ''
 
     for row in matrix:
         for idx, num in enumerate(row):
-            if num == 0
-                # change all other items in list to 0
-                # zero_idx = idx
+            if num == 0:
+                zero_idx = idx
+                if idx > 0:
+                    row[idx-1] = 0
+                    break
+                    # zeroed_matrix.append(row)
+                continue
                 # for list in matrix
                     # for idx, num in enumerate(list)
                         # if idx == zero_idx:
                             # num == 0
-            # else
-                # return matrix
+        
+        zeroed_matrix.append(row)
 
-        # return zeroed_matrix
+    return zeroed_matrix
+
+# zero_matrix([[1, 0, 3], [4, 5, 6], [7, 8, 9]])
+
 
 
 if __name__ == "__main__":
