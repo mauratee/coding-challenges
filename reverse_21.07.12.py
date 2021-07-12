@@ -19,6 +19,16 @@ def rev_string(astring):
 
     You may NOT use the reversed() function!
     """
+    # base case(degenerate):
+    # if astring is empty:
+        # return ''
+
+    # tracking variable to hold reversed string
+    # index variable to hold index
+
+    # loop over string from end[-1]
+        # add character to reversed string
+        # return reversed string
 
 
 if __name__ == '__main__':
