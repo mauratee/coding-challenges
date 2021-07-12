@@ -54,6 +54,18 @@ def rot_encode(shift, txt):
                 if value == shift_val:
                     new_char = letter
                     shifted_txt = shifted_txt + new_char
+        elif char in alpha_upper:
+            val = alpha_upper_dict[char]
+            shift_val = val + shift
+            if shift_val > 26:
+                shift_val = shift_val - 26
+            for letter, value in alpha_upper_dict.items():
+                if value == shift_val:
+                    new_char = letter
+                    shifted_txt = shifted_txt + new_char
+        else:
+            shifted_txt = shifted_txt + char
+
     
     return shifted_txt
 
