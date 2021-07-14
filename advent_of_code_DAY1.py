@@ -238,7 +238,7 @@ four_digit_strings = []
 for num in input:
     if len(num) == 4 and int(num) <= 1865:
         four_digit_strings.append(num)
-print(f"four digit strings = {four_digit_strings}")
+# print(f"four digit strings = {four_digit_strings}")
 
 
 for num in three_digit_strings:
@@ -255,6 +255,32 @@ for num in three_digit_strings:
         else:
             idx += 1
         # print(f" idx = {idx}")
+
+# four_digit_strings = []
+# for num in input:
+#     if len(num) == 4 and int(num) <= 1342:
+#         four_digit_strings.append(num)
+# print(f"four digit strings = {four_digit_strings}")
+
+for idx, num in enumerate(three_digit_strings):
+    num = int(num)
+    print(f"num is {num}")
+    while idx < len(three_digit_strings)-2:
+        num2 = int(three_digit_strings[idx + 1])
+        print(f"num2 is {num2}")
+        break
+    jdx = 0
+    while jdx < len(four_digit_strings):
+        print(f"jdx is {jdx}")
+        # print(len(four_digit_strings))
+        # print("we're in the while loop")
+        if num + num2 + int(four_digit_strings[idx]) == 2020:
+            print(f"we found three that add to 2020: {num} and {num2} and {four_digit_strings[jdx]}")
+            print(num * int(four_digit_strings[jdx]))
+
+            break
+        else:
+            jdx += 1
 
 
 
