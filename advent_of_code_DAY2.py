@@ -1,27 +1,33 @@
 
-with open("AOC_day2_input.txt") as f:
-        passwords = f.readlines()
+
+# creates passwords list with newline characters at the end of each item
+# with open("AOC_day2_input.txt") as f:
+#         passwords = f.readlines()
 
 # print(passwords)
-import re
 
-# match_obj = re.search(r"[0-9]+", "a 123 b")   # note r"pattern"
-# expect: c,x,w,q,g,q,
+# creates data list without newline characters
+with open("AOC_day2_input.txt") as f:
+    data = f.read().splitlines()
 
-
-def part1(passwords):
-
-    valid_pwd = 0
-    for password in passwords:
-        ltr = re.search(r"[a-z]", password) # note r"pattern"
-        print(ltr)
-
-        
-
-    #return valid_pwd
+# print(data)
+# example item: "9-12 k: qkhxrknkkzpk"
 
 
-# test = part1(passwords)
+
+
+# import re
+
+# def part1(passwords):
+
+#     valid_pwd = 0
+#     for password in passwords:
+#         ltr = re.search(r"[a-z]", password) # note r"pattern"
+#         print(ltr)
+
+#     return valid_pwd
+
+
 
 # if __name__ == "__main__":
     
