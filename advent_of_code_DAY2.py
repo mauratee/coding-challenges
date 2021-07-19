@@ -12,16 +12,27 @@
 # print(data)
 # example item: "9-12 k: qkhxrknkkzpk"
 
+from collections import Counter
+
+def validate_pw_1(ch_min, ch_max, ch, pw):
+    chars = Counter(pw)
+    print(chars)
+
+    return ch_min <= chars[ch] <= ch_max
+
+print(validate_pw_1(5, 6, 'g', 'rvfgnggjgk'))
 
 def parse_policy_and_pw(policies_and_pws):
     for policy_and_pw in policies_and_pws:
         policy_range, policy_char, pw = policy_and_pw.split(" ")
 
         # (5, 6, 'g', 'rvfgnggjgk')
+        # (2, 6, 'c', 'fcpwjqhcgtffzlbj')
         return tuple(int(n) for n in policy_range.split("-")) + (
             policy_char[0],
             pw
         )
+
 
 
 
