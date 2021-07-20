@@ -16,7 +16,8 @@ def count_recursively(lst):
     if not lst:
         return 0
 
-    
+    print()
+
     return 1 + count_recursively(lst[1:])
 
 
