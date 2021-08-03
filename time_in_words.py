@@ -36,19 +36,20 @@ def timeInWords(h, m):
     # create list of strings of numbers 1-12
     hour_dict = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six",
                  7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
+    # octal numbers for leading zeros 1-7
     min_dict = {0o1: "one", 0o2: "two", 0o3: "three", 0o4: "four", 0o5: "five", 0o6: "six",
                  0o7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve",
                  13: "thirteen", 14: "fourteen", 15: "quarter", 16: "sixteen", 17: "seventeen",
                  18: "eighteen", 19: "nineteen", 20: "twenty", 21: "twenty one", 22: "twenty two",
                  23: "twenty three", 24: "twenty four", 25: "twenty five", 26: "twenty six",
                  27: "twenty seven", 28: "twenty eight", 29: "twenty nine", 30: "half"}
-    # 
+     
     time_words = ""
-
+    
+    # original problem had "minutes" if m != 00, 15, 30, e.g, 1 minute past five, 10 minutes past five
     if m == 00:
        time_words += (hour_dict[h] + " o' clock")
        return time_words
-
 
     if m >= 1 and m <= 30:
         time_words += (min_dict[m] + " past " + hour_dict[h])
@@ -59,5 +60,4 @@ def timeInWords(h, m):
         time_words += (min_dict[until_hour] + " to " + hour_dict[h+1])
 
     
-
     return time_words
