@@ -109,6 +109,17 @@ class BinaryNode(object):
 
     def is_balanced(self):
         """Is the tree at this node balanced?"""
+        # node_counter = 0
+        # max depth counter
+        min_depth = ''
+
+        if not self.left or not self.right:
+            min_depth = 0
+        
+        # if number of nodes <= 2:
+            # return True
+        
+
 
 
 if __name__ == '__main__':
