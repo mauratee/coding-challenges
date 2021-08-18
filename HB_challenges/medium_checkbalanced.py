@@ -115,6 +115,8 @@ class BinaryNode(object):
 
         if not self.left or not self.right:
             min_depth = 0
+            if not self.left.left or not self.right.right:
+                return True
         
         # if number of nodes <= 2:
             # return True
