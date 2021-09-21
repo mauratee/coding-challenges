@@ -32,6 +32,24 @@ three
 def fit_to_width(string, limit):
     """Print string within a character limit."""
 
+    def string_less_limit(string, limit):
+        if len(string) < limit:
+            print(string)
+    
+    string_less_limit(string, limit)
+    
+    if string[limit-1] == " ":
+        print(string[:limit])
+        # return fit_to_width(string[limit:], limit)
+        string_less_limit(string[limit:], limit)
+    else:
+        x = limit-2
+        if string[x] == " ":
+            print(string[:x])
+        else:
+            x = x-1
+
+
 
 if __name__ == '__main__':
     import doctest
