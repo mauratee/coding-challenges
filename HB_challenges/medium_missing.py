@@ -9,8 +9,13 @@ def missing_number(nums, max_num):
 
     >>> missing_number([7, 3, 2, 4, 5, 6, 1, 9, 10], 10)
     8
+
+    >>> missing_number([7, 3, 2, 8, 5, 6, 1, 9, 10], 10)
+    4
     
     """
+
+    # || This solution is O(n) runtime:
     nums_dict = {}
 
     for num in nums:
@@ -22,6 +27,24 @@ def missing_number(nums, max_num):
     for i in range(1, max_num + 1):
         if i not in nums_dict:
             return i
+
+
+    # || This solution is O(n log n) runtime but doesn't use additional memory:
+
+    # sort list in-place, doesn't take up more memory
+    nums.sort()
+    # print(nums)
+
+    for idx, num in enumerate(nums):
+        if (num - idx) != 1:
+            # print(num)
+            return (num - 1)
+
+
+    # || Solution that takes O(n) runtime and O(1) space:
+    
+    return sum_max_num - sum(nums)
+
 
 
 if __name__ == '__main__':
