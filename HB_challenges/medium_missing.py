@@ -16,6 +16,7 @@ def missing_number(nums, max_num):
     """
 
     # || This solution is O(n) runtime:
+
     nums_dict = {}
 
     for num in nums:
@@ -40,10 +41,28 @@ def missing_number(nums, max_num):
             # print(num)
             return (num - 1)
 
+    nums.append(max_num + 1)
+
+
+    # HB solution to adding no additional memory
+    nums.sort()
+    last = 1
+
+    for i in nums:
+        if i != last:
+            return last
+        last += 1
+
+    raise Exception("None are missing!")
+
 
     # || Solution that takes O(n) runtime and O(1) space:
+
+    # expected = sum(range(max_num +1))
+    # or:
+    expected = (max_num + 1) * (max_num // 2)
     
-    return sum_max_num - sum(nums)
+    return expected - sum(nums)
 
 
 
