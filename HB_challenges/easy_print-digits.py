@@ -36,8 +36,8 @@ def print_digits(num):
     while num != 0:
         nums.append(num % 10)
         num = num // 10
-        # print(f"nums = {nums}")
-        # print(f"num = {num}")
+        print(f"nums = {nums}")
+        print(f"num = {num}")
     
     for num in nums:
         print(num)
