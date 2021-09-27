@@ -36,6 +36,16 @@ An empty list should return an empty list::
 
 def deduped(items):
     """Return new list from items with duplicates removed."""
+
+    duplicates_removed = []
+
+    for item in items:
+        if item not in duplicates_removed:
+            duplicates_removed.append(item)
+        else:
+            pass
+    
+    return duplicates_removed
     
 if __name__ == '__main__':
     import doctest
