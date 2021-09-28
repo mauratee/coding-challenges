@@ -60,6 +60,39 @@ def remove_node(node):
 
     Does not return anything; changes list in place.
     """
+    # current = node.data
+    
+    
+    # print(f"node.next reassigned = {node.next}")
+
+    # Assign node.data to next node data and change pointer to two nodes down
+    # print(f"node.data = {node.data}")
+    node.data = node.next.data
+    # print(f"node.data reassigned = {node.data}")
+    node.next = node.next.next
+
+    # for each_node in node:
+    #     each_node.data = each_node.next.data
+    #     node.data = None
+
+    # if node.next != None:
+    #     node.data = node.next.data
+    # else:
+    #     return
+    
+    # return remove_node(node.next)
+
+    # current = self
+    # print(current)
+
+    # || HB Solution
+    # if not node.next:
+    #     raise ValueError("Cannot remove tail node")
+
+    # print(f"node.data = {node.data}")
+    # node.data = node.next.data
+    # print(f"node.data reassigned = {node.data}")
+    # node.next = node.next.next
 
 
 if __name__ == '__main__':
