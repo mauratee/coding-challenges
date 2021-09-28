@@ -10,7 +10,7 @@ def recursive_index(needle, haystack):
     # call recursed and start at 0
     # function check if haystack[start] == needle
     # if not, keep calling function
-    # if deos match, return whatever index we're at
+    # if does match, return whatever index we're at
 
     # underscore function name means only call this in local namespace
     def _recursed(needle, haystack, start):
