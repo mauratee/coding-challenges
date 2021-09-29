@@ -43,6 +43,23 @@ def reverse_linked_list(head):
     '321'
     """
 
+    # || Done without looking at HB answer
+    # if ll only has one node, return head
+    if not head.next:
+        return head
+
+    
+    def find_tail(head):
+
+        current = head.next
+
+        if current != None:
+            current = current.next
+    
+        return current
+    
+    return find_tail(head)
+
 
 if __name__ == '__main__':
     import doctest
