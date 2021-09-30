@@ -45,23 +45,34 @@ def reverse_linked_list(head):
 
     # || Done without looking at HB answer
     # if ll only has one node, return head
-    if not head.next:
-        return head
+    # if not head.next:
+    #     return head
 
     
-    def find_tail(head):
+    # def find_tail(head):
 
-        current = head.next
+    #     current = head.next
 
-        if current != None:
-            current = current.next
+    #     if current != None:
+    #         current = current.next
     
-        return current
+    #     return current
     
-    return find_tail(head)
+    # return find_tail(head)
+
+    out_head = None
+    n = head
+
+    while n:
+        out_head = Node(n.data, out_head)
+        n = n.next
+
+    return out_head
 
 
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
         print("\n*** ALL TESTS PASSED. RIGHT ON!\n")
+
+
