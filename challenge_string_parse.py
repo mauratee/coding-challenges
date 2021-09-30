@@ -69,7 +69,8 @@ def parseTransactionRecord(transaction, property):
         return transaction_dict[property]
         
     else:
-        return None
+        print(transaction.vformat())
+        return transaction
         # need to figure out how to find missing properties and return empty strings for missing
 
 
