@@ -69,6 +69,8 @@ def parseTransactionRecord(transaction, property):
         return transaction_dict[property]
         
     else:
+        # I think this would have to be done in regex?
+        # Can't find any other Python methods that will find patterns in a string
         print(transaction.vformat())
         return transaction
         # need to figure out how to find missing properties and return empty strings for missing
