@@ -76,22 +76,22 @@ def parseTransactionRecord(transaction, property):
         # need to figure out how to find missing properties and return empty strings for missing
 
 
-# class Test(unittest.TestCase):
+class Test(unittest.TestCase):
 
-#     # def regular_transaction(self):
-#     #     result = 
-#     #     expect = 
-#     #     self.assertEqual(result, expect)
+    # def regular_transaction(self):
+    #     result = 
+    #     expect = 
+    #     self.assertEqual(result, expect)
 
-#     def transaction_empty(self):
-#         result = parseTransactionRecord("", "direction")
-#         expect = ""
-#         self.assertEqual(result, expect)
+    def transaction_empty(self):
+        result = parseTransactionRecord("", "direction")
+        expect = ""
+        self.assertEqual(result, expect)
 
-# unittest.main(verbosity=2)
+unittest.main(verbosity=2)
 
 
-if __name__ == "__main__":
-    import doctest
-    if doctest.testmod().failed == 0:
-        print("\n✨✨ All tests passed! ✨✨\n")
+# if __name__ == "__main__":
+#     import doctest
+#     if doctest.testmod().failed == 0:
+#         print("\n✨✨ All tests passed! ✨✨\n")
