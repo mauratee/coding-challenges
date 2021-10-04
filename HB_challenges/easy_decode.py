@@ -27,6 +27,22 @@ Longer patterns should work::
 def decode(s):
     """Decode a string."""
 
+    decoded = ""
+    idx = 0
+
+    while idx < len(s):
+        
+        if int(s[idx]) + 1 <= len(s):
+            # print(idx)
+            # print(int(s[idx]) + 1)
+            decoded = decoded + s[idx + int(s[idx]) + 1]
+            idx = idx + int(s[idx]) + 2
+            # print(f"idx = {idx}")
+
+
+    return decoded
+
+
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
