@@ -11,7 +11,7 @@ For example, the string "hey" could be encoded by "0h1ae2bcy". This means
 
 A single letter should work::
 
-    >>> decode("0h")
+    >>> decode("h0")
     'h'
 
     >>> decode("2abh")
