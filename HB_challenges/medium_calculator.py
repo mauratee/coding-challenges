@@ -24,6 +24,40 @@ Let's make sure we have non-commutative operators working:
 
 def calc(s):
     """Evaluate expression."""
+    operators = {"+": "add", "-": "sub", "*": "mul", "/": "div"}
+
+    expression = s.split(" ")
+    # print(expression)
+
+    int_stack = []
+    to_compute = 0
+
+    # while expression[-1] not in operators:
+    #     int_stack.append(expression.pop())
+
+    # print(int_stack)
+
+    while expression:
+        # print(expression)
+        if expression[-1] not in operators:
+            int_stack.append(expression.pop())
+            # print(int_stack)
+        else:
+            operator = expression.pop()
+            # print(operator)
+            to_compute = int(int_stack.pop())
+            # print(to_compute)
+            num_2 = int(int_stack.pop())
+            # print(to_compute)
+            to_compute = eval(f"{to_compute} {operator} {num_2}")
+            # to_compute = operators[expression.pop()] int(int_stack.pop())
+            # print(to_compute)
+            int_stack.append(to_compute)
+    
+    return int(to_compute)
+        
+
+
 
 
 if __name__ == '__main__':
