@@ -38,7 +38,24 @@ than pick nothing!):
 
 def largest_sum(nums):
     """Find subsequence with largest sum."""
+    left_pointer = 0
+    right_pointer = 0
 
+    largest_sub = []
+    largest_sum = 0
+
+    while left_pointer < len(nums):
+        print(f"left_pointer = {left_pointer}")
+        while right_pointer < len(nums):
+            print(f"right_pointer = {right_pointer}")
+            if (nums[left_pointer] + nums[right_pointer]) > largest_sum:
+                largest_sub.append(nums[left_pointer])
+                right_pointer += 1
+            else:
+                left_pointer +=1
+    
+
+    return largest_sub
 
 if __name__ == '__main__':
     import doctest

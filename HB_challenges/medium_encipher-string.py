@@ -26,15 +26,34 @@ def rot_encode(shift, txt):
     # 'p': 16, 'q': 17, 'r': 18, 's': 19, 't': 20, 'u': 21, 'v': 22, 'w': 23, 
     # 'x': 24, 'y': 25, 'z': 26}
 
-    dict_keys = alpha_dict.keys()
+    dict_keys = list(alpha_dict)
+    # print(dict_keys)
 
     new_text = []
+    uppercase = False
 
     for letter in txt:
-        value = alpha_dict[letter]
-        new_val = value + shift
-        new_letter = dict_keys[new_val -1]
-        new_text.append(new_letter)
+        if letter.isalpha():
+            # print(letter)
+            if letter.isupper():
+                uppercase = True
+            else:
+                uppercase = False
+            letter = letter.lower()
+            value = alpha_dict[letter]
+            new_val = value + shift
+            if new_val > 26:
+                new_val = new_val - 26
+            # print(new_val)
+            new_letter = dict_keys[new_val -1]
+            # print(new_letter)
+            # print(uppercase)
+            if uppercase:
+                new_text.append(new_letter.upper())
+            else:
+                new_text.append(new_letter)
+        else:
+            new_text.append(letter)
 
     return "".join(new_text)
 
