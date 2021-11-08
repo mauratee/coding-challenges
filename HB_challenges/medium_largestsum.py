@@ -41,21 +41,55 @@ def largest_sum(nums):
     left_pointer = 0
     right_pointer = 0
 
-    largest_sub = []
+    largest_substring = []
     largest_sum = 0
 
-    while left_pointer < len(nums):
-        print(f"left_pointer = {left_pointer}")
-        while right_pointer < len(nums):
-            print(f"right_pointer = {right_pointer}")
-            if (nums[left_pointer] + nums[right_pointer]) > largest_sum:
-                largest_sub.append(nums[left_pointer])
-                right_pointer += 1
-            else:
-                left_pointer +=1
+    # sums = [nums[0]]
+    # for i in range(len(nums)-1):
+    #     sums.append(sums[i] + nums[i + 1])
+
+    # print(sums)
+
+    for i in range(len(nums)):
+        temp_sum = 0
+        # print(f"i = {i}")
+        if nums[i] >= largest_sum:
+            largest_sum = nums[i]
+            left_pointer = i
+        for j in range(i, len(nums)):
+            temp_sum += nums[j]
+            if (temp_sum > largest_sum):
+                # print(f"j = {j}")
+                largest_sum = temp_sum
+                right_pointer = j
+                left_pointer = i
+
+    # print(f"left pointer = {left_pointer}")
+    # print(f"right pointer = {right_pointer}")
+    if largest_sum == 0:
+        return []
+    else:
+        return nums[left_pointer:right_pointer + 1]
+
+
+
+    # if left_pointer at nums is greater than largest_sum
+        # set largest_sum equal to left_pointer at nums
+
     
 
-    return largest_sub
+    # while left_pointer < len(nums):
+    #     print(f"left_pointer = {left_pointer}")
+    #     while right_pointer < len(nums):
+    #         print(f"right_pointer = {right_pointer}")
+    #         if (nums[left_pointer] + nums[right_pointer]) > largest_sum:
+    #             largest_sub.append(nums[left_pointer])
+    #             right_pointer += 1
+    #         else:
+    #             left_pointer +=1
+    
+
+    
 
 if __name__ == '__main__':
     import doctest
