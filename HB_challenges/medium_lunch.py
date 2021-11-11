@@ -94,6 +94,43 @@ def lunch_count(garden):
     nrows = len(garden)
     ncols = len(garden[0])
 
+    carrots_eaten = 0
+
+    if nrows % 2 == 0:
+        print(nrows)
+        middle_rows = (nrows // 2, (nrows // 2) - 1 )
+        print(middle_rows)
+    else:
+        print(nrows)
+        middle_row = (nrows // 2)
+        print(middle_row)
+
+    if ncols % 2 == 0:
+        print(ncols)
+        middle_cols = (ncols // 2, (ncols // 2) - 1 )
+        print(middle_cols)
+    else:
+        print(ncols)
+        middle_col = (ncols // 2)
+        print(middle_col)
+
+    if middle_row and middle_col:
+        start = garden[middle_row][middle_col]
+        print(start)
+        carrots_eaten += start
+        garden[middle_row][middle_col] = 0
+        # print(garden)
+    else:
+        max_start = 0
+        if middle_rows:
+            for row in middle_rows:
+
+
+
+
+
+    # return carrots_eaten
+
 if __name__ == '__main__':
     import doctest
 
