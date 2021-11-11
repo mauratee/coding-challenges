@@ -26,8 +26,10 @@ def isAmount(input):
             dec_idx = idx
     
     if dec_idx:
+        print(dec_idx)
         count = len(input) - dec_idx
-        return count != 2
+        print(count)
+        return count == 3
 
     return True
 
@@ -67,6 +69,16 @@ class Test(unittest.TestCase):
     def test_two_decimal(self):
         actual = isAmount("100.20")
         expected = True
+        self.assertEqual(actual, expected)
+
+    def test_three_decimal(self):
+        actual = isAmount("100.200")
+        expected = False
+        self.assertEqual(actual, expected)
+
+    def test_lots_decimals(self):
+        actual = isAmount("100.2000000000000")
+        expected = False
         self.assertEqual(actual, expected)
 
 
