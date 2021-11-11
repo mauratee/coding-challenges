@@ -26,9 +26,9 @@ def isAmount(input):
             dec_idx = idx
     
     if dec_idx:
-        print(dec_idx)
+        # print(dec_idx)
         count = len(input) - dec_idx
-        print(count)
+        # print(count)
         return count == 3
 
     return True
