@@ -34,19 +34,21 @@ Since there's a tie, the first was returned)
 
 def most_active(bio_data):
     """Find window of time when most authors were active."""
-
+    
+    # Create list to hold window. Lists are mutable, set to largest window possible
     window = [0, 2021]
     # count = 0
 
     for author in bio_data:
         if author[1] >= window[0] and author[1] <= window[1]:
-            count +=1
+            # count +=1
             window[0] = author[1]
         if author[2] <= window[1] and author[2] >= window[0]:
             window[1] = author[2]
     
     # print(window)
 
+    # return immutable tuple
     return (window[0], window[1])
 
 
