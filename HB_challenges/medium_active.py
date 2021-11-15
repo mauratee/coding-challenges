@@ -35,6 +35,22 @@ Since there's a tie, the first was returned)
 def most_active(bio_data):
     """Find window of time when most authors were active."""
 
+    window = [0, 2021]
+    # count = 0
+
+    for author in bio_data:
+        if author[1] >= window[0] and author[1] <= window[1]:
+            count +=1
+            window[0] = author[1]
+        if author[2] <= window[1] and author[2] >= window[0]:
+            window[1] = author[2]
+    
+    # print(window)
+
+    return (window[0], window[1])
+
+
+
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
