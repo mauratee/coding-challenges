@@ -14,3 +14,6 @@ import unittest
 def compress_string(astring):
     stack = []
 
+    for letter in astring:
+        
+
