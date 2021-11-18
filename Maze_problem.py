@@ -1,35 +1,70 @@
 import sys
 
 # Mock submission that will return valid path
-class ReferenceMazeRunner:
-    def run(self, start, end):
-        # print(f"we're in ReferenceMazeRunner self = {self}")
-        path = []
-        # check if start room has valid exits
-        if start.exits:
-            # iterate over each possible next room
-            for possibility in start.exits:
-                # print(possibility)
-                # get maze square object related to each possible exit
-                next = start.get_square(possibility)
-                # print(next.name)
-                if next:
-                    if next.exits:
-                        # print(next.exits)
-                        for exit in next.exits:
-                            # print(exit)
-                            next_next = next.get_square(exit)
-                            # print(next_next.name)
-                            # print(end)
-                            if next_next.name == end.name:
-                                path.append(possibility)
-                                # path.append()
-                            # if possibility name equals start, then pass
-                            # if possibility name equals end:
+# class ReferenceMazeRunner:
+#     def run(self, start, end):
+#         # print(f"we're in ReferenceMazeRunner self = {self}")
+#         path = []
+#         # check if start room has valid exits
+#         if start.exits:
+#             # iterate over each possible next room
+#             for possibility in start.exits:
+#                 # print(possibility)
+#                 # get maze square object related to each possible exit
+#                 next = start.get_square(possibility)
+#                 # print(next.name)
+#                 if next:
+#                     if next.exits:
+#                         # print(next.exits)
+#                         for exit in next.exits:
+#                             # print(exit)
+#                             next_next = next.get_square(exit)
+#                             # print(next_next.name)
+#                             # print(end)
+#                             if next_next.name == end.name:
+#                                 path.append(possibility)
+#                                 # path.append()
+#                             # if possibility name equals start, then pass
+#                             # if possibility name equals end:
         
-            # print(f"path = {path}")
+#             # print(f"path = {path}")
                 
             
+    
+#         return path
+
+class ReferenceMazeRunner:
+    def run(self, start, end):
+
+
+        def list_nodes(node):
+            """List all nodes."""
+
+            print(node.name)
+            for each in node.exits:
+                # print(each)
+                child = node.get_square(each)
+                list_nodes(child)
+        
+        list_nodes(start)
+        
+        path = []
+        # check if start room has valid exits
+        # if start.exits:
+        #     # iterate over each possible next room
+        #     for each in start.exits:
+        #         # print(possibility)
+        #         # get maze square object related to each possible exit
+        #         child = start.get_square(each)
+        #         print(child)
+
+            
+            # iterate over each possible next room (exit/child)
+            # get maze square object related to each exit/child
+            # if exit name equals start, then pass
+            # if exit/child name equals end.name, append direction to path
+        
+        
     
         return path
 
