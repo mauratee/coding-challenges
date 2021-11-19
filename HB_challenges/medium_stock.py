@@ -50,6 +50,26 @@ def best(prices):
     If no profit is possible, return 0.
     """
 
+    profit = 0
+
+    buy = min(prices)
+    buy_idx = 0
+    sell = max(prices)
+    sell_idx = 0
+
+    # for idx, num in enumerate(prices):
+    #     if num == buy:
+    #         buy_idx = idx
+    #     if num == sell:
+    #         sell_idx = idx
+
+    # if buy_idx < sell_idx:
+    #     profit = buy - sell
+
+    profit = buy - sell
+
+    return profit
+
 
 if __name__ == '__main__':
     import doctest
