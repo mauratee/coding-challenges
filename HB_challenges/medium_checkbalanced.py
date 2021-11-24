@@ -111,14 +111,28 @@ class BinaryNode(object):
         """Is the tree at this node balanced?"""
         # node_counter = 0
         # max depth counter
-        min_depth = ''
+        min_depth = 0
+        max_depth = 0
 
-        if not self.left or not self.right:
-            min_depth = 0
-            if not self.left.left or not self.right.right:
-                return True
+        if self.left or self.right:
+            min_depth += 1
+            max_depth += 1
+            if self.left.left or self.right.right:
+                min_depth += 1
+                max_depth += 1
+                if self.left.left.left or self.right.right.right:
+                    min_depth += 1
+                    max_depth += 1
+                    if self.leftl.left.left.left or self.right.right.right.right:
+                        min_depth += 1
+                        max_depth += 1
+
+        # print(min_depth)
+        # print(max_depth)
+        if min_depth - max_depth >= 2:
+            return False
         
-        return False
+        return True
         
 
 
