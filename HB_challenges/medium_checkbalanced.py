@@ -118,8 +118,7 @@ class BinaryNode(object):
             if not self.left.left or not self.right.right:
                 return True
         
-        # if number of nodes <= 2:
-            # return True
+        return False
         
 
 
