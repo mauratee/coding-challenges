@@ -36,6 +36,21 @@ Find the farthest any single lemming needs to travel for food.
 
 def furthest(num_holes, cafes):
     """Find longest distance between a hole and a cafe."""
+    
+    distance = 0
+    midpoint = num_holes // 2
+    # print(f"midpoint = {midpoint}")
+
+    if len(cafes) == num_holes:
+        return distance
+    
+    for cafe in cafes:
+        # print(cafe)
+        if cafe == 0 or cafe == num_holes -1:
+            distance = num_holes -1
+
+    return distance
+    
 
 if __name__ == '__main__':
     import doctest
