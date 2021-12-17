@@ -15,25 +15,40 @@ class TreeNode:
 
 def maxDepth(root):
 
-    depth = None
+    best_depth = None
 
     if not root:
         return 0
     else:
-        depth = 1
-    
-    to_visit = [root]
+        best_depth = 1
 
+    to_visit = [root]
+    seen = set()
+    
+    # find deepest path and track versus other paths
+    # depth first search
+    
+    depth_so_far = 0
+    
     while to_visit:
         current_node = to_visit.pop()
-        print(current_node)
+        print("current_node is ", current_node)
 
         if current_node.left:
             to_visit.append(current_node.left)
-            depth += 1
-
-
-    return depth
+            depth_so_far += 1
+            
+        if current_node.right:
+            to_visit.append(current_node.right)
+            depth_so_far += 1
+        
+        else:
+            print("depth so far = ", depth_so_far)
+            if depth_so_far > best_depth:
+                best_depth = depth_so_far
+            depth_so_far = 0
+    
+    return best_depth
 
 
 
