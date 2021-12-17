@@ -119,8 +119,10 @@ def maxpath(nodes):
 
     while possible_nodes:
         print(f"^^^^^ BEGIN ^^^^^^")
+
         current = possible_nodes.pop()
         path.append(current.value)
+        
         print(f"path = {path}")
 
         if not current.children:
