@@ -15,7 +15,25 @@ class TreeNode:
 
 def maxDepth(root):
 
-    print(root)
+    depth = None
+
+    if not root:
+        return 0
+    else:
+        depth = 1
+    
+    to_visit = [root]
+
+    while to_visit:
+        current_node = to_visit.pop()
+        print(current_node)
+
+        if current_node.left:
+            to_visit.append(current_node.left)
+            depth += 1
+
+
+    return depth
 
 
 
