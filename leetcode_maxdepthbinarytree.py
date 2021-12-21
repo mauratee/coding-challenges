@@ -14,7 +14,7 @@ class TreeNode:
 
 
 def maxDepth(root):
-
+    print(root)
     best_depth = None
 
     if not root:
@@ -33,16 +33,24 @@ def maxDepth(root):
     while to_visit:
         current_node = to_visit.pop()
         print("current_node is ", current_node)
+        depth_so_far += 1
+        print("best depth is ", best_depth)
+        print("depth so far is ", depth_so_far)
 
         if current_node.left:
-            to_visit.append(current_node.left)
-            depth_so_far += 1
+            if current_node.left not in seen:
+                to_visit.append(current_node.left)
+                if current_node != root:
+                    seen.add(current_node)
             
         if current_node.right:
-            to_visit.append(current_node.right)
-            depth_so_far += 1
+            if current_node.left not in seen:
+                to_visit.append(current_node.right)
+                if current_node != root:
+                    seen.add(current_node)
         
-        else:
+        #if not current_node.left and not current_node.right
+        if current_node.right is None and current_node.left is None:
             print("depth so far = ", depth_so_far)
             if depth_so_far > best_depth:
                 best_depth = depth_so_far
@@ -56,25 +64,23 @@ def maxDepth(root):
 class Test(unittest.TestCase):
 
     def test_not_deep(self):
-        actual = maxDepth(TreeNode(3, TreeNode(9, None, None), TreeNode(20, TreeNode(15, None, None), 
-        TreeNode(7, None, None))))
+        actual = maxDepth(TreeNode(3, TreeNode(9, None, None), TreeNode(20, TreeNode(15, None, None), TreeNode(7, None, None))))
         expected = 3
         self.assertEqual(actual, expected)
 
-    # def test_empty_string(self):
-    #     actual = longestCommonPrefix([""])
-    #     expected = ""
-    #     self.assertEqual(actual, expected)
 
-    # def test_list_of_empty_strings(self):
-    #     actual = longestCommonPrefix(["",""])
-    #     expected = ""
-    #     self.assertEqual(actual, expected)
+    def test_uneven(self):
+        actual = maxDepth(TreeNode(1, TreeNode(2, TreeNode(4, None, None), TreeNode(5, None, None)), TreeNode(3, None, None)))
+        expected = 3
+        self.assertEqual(actual, expected)
+    
+    
+    def test_so_small(self):
+        actual = maxDepth(TreeNode(1, TreeNode(2, None, None), None))
+        expected = 2
+        self.assertEqual(actual, expected)
 
-    # def test_list_of_short_strings(self):
-    #     actual = longestCommonPrefix(["ab","a"])
-    #     expected = "a"
-    #     self.assertEqual(actual, expected)
+
 
 
 unittest.main(verbosity=2)
