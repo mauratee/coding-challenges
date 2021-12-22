@@ -74,10 +74,24 @@ class Test(unittest.TestCase):
         expected = 3
         self.assertEqual(actual, expected)
     
-    
+
     def test_so_small(self):
         actual = maxDepth(TreeNode(1, TreeNode(2, None, None), None))
         expected = 2
+        self.assertEqual(actual, expected)
+
+
+    def test_two_nodes(self):
+        actual = maxDepth(TreeNode(1, None, TreeNode(2, None, None)))
+        expected = 2
+        self.assertEqual(actual, expected)
+
+
+    # [1,2,3,4,null,null,5]
+    def test_balanced(self):
+        actual = maxDepth(TreeNode(1, TreeNode(2, TreeNode(4, None, None),
+                 None), TreeNode(3, None, TreeNode(5, None, None))))
+        expected = 3
         self.assertEqual(actual, expected)
 
 
