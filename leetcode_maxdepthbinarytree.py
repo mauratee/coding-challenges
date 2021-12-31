@@ -63,29 +63,29 @@ def maxDepth(root):
 
 class Test(unittest.TestCase):
 
+    # [3,9,20,null,null,15,7]
     def test_not_deep(self):
         actual = maxDepth(TreeNode(3, TreeNode(9, None, None), TreeNode(20, TreeNode(15, None, None), TreeNode(7, None, None))))
         expected = 3
         self.assertEqual(actual, expected)
 
-
+    # [1,2,3,4,5]
     def test_uneven(self):
         actual = maxDepth(TreeNode(1, TreeNode(2, TreeNode(4, None, None), TreeNode(5, None, None)), TreeNode(3, None, None)))
         expected = 3
         self.assertEqual(actual, expected)
     
-
+    # [1,2]
     def test_so_small(self):
         actual = maxDepth(TreeNode(1, TreeNode(2, None, None), None))
         expected = 2
         self.assertEqual(actual, expected)
 
-
+    # [1,null,2]
     def test_two_nodes(self):
         actual = maxDepth(TreeNode(1, None, TreeNode(2, None, None)))
         expected = 2
         self.assertEqual(actual, expected)
-
 
     # [1,2,3,4,null,null,5]
     def test_balanced(self):
