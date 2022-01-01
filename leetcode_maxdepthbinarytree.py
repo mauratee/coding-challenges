@@ -16,6 +16,7 @@ class TreeNode:
 def maxDepth(root):
     print(root)
     best_depth = None
+    current_depth = 0
 
     if not root:
         return 0
@@ -53,8 +54,9 @@ def maxDepth(root):
         if current_node.right is None and current_node.left is None:
             print("depth so far = ", depth_so_far)
             if depth_so_far > best_depth:
+                current_depth = best_depth
                 best_depth = depth_so_far
-            depth_so_far = 0
+            depth_so_far = current_depth
     
     return best_depth
 
@@ -70,6 +72,13 @@ class Test(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     # [1,2,3,4,5]
+
+    #     1
+    #    /  \
+    #   2    3
+    #  / \
+    # 4   5
+
     def test_uneven(self):
         actual = maxDepth(TreeNode(1, TreeNode(2, TreeNode(4, None, None), TreeNode(5, None, None)), TreeNode(3, None, None)))
         expected = 3
