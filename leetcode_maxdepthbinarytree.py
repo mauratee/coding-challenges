@@ -98,9 +98,25 @@ class Test(unittest.TestCase):
 
     # [1,2,3,4,null,null,5]
     def test_balanced(self):
-        actual = maxDepth(TreeNode(1, TreeNode(2, TreeNode(4, None, None),
-                 None), TreeNode(3, None, TreeNode(5, None, None))))
+        actual = maxDepth(TreeNode(1, TreeNode(2, TreeNode(4, None, None), None), TreeNode(3, None, TreeNode(5, None, None))))
         expected = 3
+        self.assertEqual(actual, expected)
+
+    # [7,-7,8,null,null,-3,6,null,9,null,null,null,-5]
+    
+    #         7
+    #        / \
+    #      -7   8
+    #          / \
+    #         -3  6
+    #              \
+    #               9
+    #                \
+    #                -5     
+
+    def test_negative(self):
+        actual = maxDepth(TreeNode(7, TreeNode(-7, None, None), TreeNode(8, TreeNode(-3, None, TreeNode(9, None, TreeNode(-5, None, None))), TreeNode(6, None, None))))
+        expected = 5
         self.assertEqual(actual, expected)
 
 
