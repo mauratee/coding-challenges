@@ -38,25 +38,33 @@ def maxDepth(root):
         print("best depth is ", best_depth)
         print("depth so far is ", depth_so_far)
 
-        if current_node.left:
-            if current_node.left not in seen:
-                to_visit.append(current_node.left)
-                if current_node != root:
-                    seen.add(current_node)
+        # if current_node.left:
+        #     if current_node.left not in seen:
+        #         to_visit.append(current_node.left)
+        #         if current_node != root:
+        #             seen.add(current_node)
             
-        if current_node.right:
-            if current_node.left not in seen:
-                to_visit.append(current_node.right)
+        # if current_node.right:
+        #     if current_node.left not in seen:
+        #         to_visit.append(current_node.right)
+        #         if current_node != root:
+        #             seen.add(current_node)
+
+        if current_node.left or current_node.right:
+            next = current_node.left or current_node.right
+            if next not in seen:
+                to_visit.append(next)
                 if current_node != root:
                     seen.add(current_node)
         
         #if not current_node.left and not current_node.right
         if current_node.right is None and current_node.left is None:
-            print("depth so far = ", depth_so_far)
             if depth_so_far > best_depth:
                 current_depth = best_depth
                 best_depth = depth_so_far
             depth_so_far = current_depth
+            to_visit.append(root)
+            print("depth so far = ", depth_so_far)
     
     return best_depth
 
